@@ -22,6 +22,8 @@
    4. [Output](#output)
       1. [JSON](#json)
       2. [HTTP Response status codes](#http-response-status-codes)
+3. [Practice](#practice)
+4. [Tools](#tools)
 
 ## Introduction
 
@@ -180,3 +182,21 @@ Suggested usages for the **Top 10 HTTP Response Status Codes** are as follows:
   Never return this intentionally. The general catch-all error when the server-side throws an exception. Use this only for errors that the consumer cannot address from their end.
 
 > **TIP**: For knowing all the HTTP codes without dying, it's cool to checkout this [website](https://http.cat/) called HTTP.cat. Just check it.
+
+## Practice
+
+`# TODO`
+
+## Tools
+
+### Postman
+
+[Postman](https://www.getpostman.com/) is one of the most famous, if not the most, tools for firing requests to an API. It is very lightweight and fast. Requests can be organized in groups, also tests can be created with verifications for certain conditions on the response. With its features, it is very good and convenient API tool. It is possible to make different kinds of HTTP requests – *GET*, *POST*, *PUT* and *DELETE*. It is possible to add headers to the requests.
+
+## Authors
+
+- [Albert Suàrez](https://github.com/AlbertSuarez)
+
+## License
+
+MIT © Albert Suàrez

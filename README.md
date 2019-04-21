@@ -9,6 +9,20 @@
 
 👷🏽‍♀️ Code for **How to build an API workshop** at [UPC Campus Nord](https://www.upc.edu/campusnord/en), a [Hackers@UPC](https://hackersatupc.org/) event.
 
+## Table of contents
+
+1. [Introduction](#introduction)
+2. [Theory](#theory)
+   1. [What's an API?](#whats-an-api)
+   2. [API endpoints](#api-endpoints)
+   3. [Input](#input)
+      1. [Headers](#headers)
+      2. [Query parameters](#query-parameters)
+      3. [Request body](#request-body)
+   4. [Output](#output)
+      1. [JSON](#json)
+      2. [HTTP Response status codes](#http-response-status-codes)
+
 ## Introduction
 
 This workshop has the goal of introducing the concept of the APIs and learning how to build one. In order to understand the concept of *black box* of the APIs, we are gonna have an [HTML](/index.html) page, hosted [here](https://asuarez.dev/build-api-workshop/), where you will be able to test your API.
@@ -29,32 +43,9 @@ RESTFul APIs are the most common in the current state of art of Computer Science
 
 ### API endpoints
 
-You can understand an endpoint of an API as an **entry point into that mentioned black box**. You receive requests to that endpoint with some parameters, and magically you have to return some cool data in a proper way. That proper way is called [JSON](https://www.json.org/).
+You can understand an endpoint of an API as an **entry point into that mentioned black box**. You receive requests to that endpoint with some parameters, and magically you have to return some cool data in a proper way. That proper way is called [JSON](https://www.json.org/), which we'll be explainer later.
 
-**JSON** (JavaScript Object Notation) is a lightweight data-interchange format. It is easy for humans to read and write. It is easy for machines to parse and generate.
-
-```json
-{
-  "widget": {
-    "debug": "on",
-    "window": {
-        "title": "Sample Konfabulator Widget",
-        "name": "main_window",
-        "width": 500,
-        "height": 500
-    },
-    "image": { 
-        "src": "Images/Sun.png",
-        "name": "sun1",
-        "hOffset": 250,
-        "vOffset": 250,
-        "alignment": "center"
-    }
-  }
-}
-```
-
-Going back to the previous point, in order to understand how to use those endpoints, we have to know how an API is properly **designed**.
+In order to understand how to use those endpoints, we have to know how an API is properly **designed**.
 
 Let’s write few endpoints for an API that has **Companies** which has some **Employees,** to understand more.
 `/getAllEmployees` is an API which will respond with the list of employees.
@@ -88,7 +79,7 @@ Other RESTFul APIs prefers to design these paths using query parameters instead 
 
 Wait, did you say *query parameters*? What's that? Let's talk a bit about how we can specity the input of the black box.
 
-### Query parameters / Body request / Headers
+### Input
 
 In order to specify the input of the black box, there are **three** ways for doing it. However, not all of them can be used in all the scenarios.
 
@@ -108,3 +99,84 @@ This type of parameter is being used in the *four types* of the methods but not 
 #### Request body
 
 This kind of input is only allowed in POST and PUT methods. This is usually useful for letting the request know which data should be added or modified. There are a bunch of [different request bodies](http://www.iana.org/assignments/media-types/media-types.xhtml), where you can specify which one as a header using `Content-Type` parameter. Howerver, the most common one is `application/json`.
+
+### Output
+
+That we know how to specify the input of the black box, let's see some information about the output.
+
+In most cases, when you are specifying the reponse of a RESTFul API, there is always two things to return: the response if self (formatted as JSON) and the HTTP status code.
+
+#### JSON format
+
+**JSON** (JavaScript Object Notation) is a lightweight data-interchange format. It is easy for humans to read and write. It is easy for machines to parse and generate.
+
+```json
+{
+  "widget": {
+    "debug": "on",
+    "window": {
+        "title": "Sample Konfabulator Widget",
+        "name": "main_window",
+        "width": 500,
+        "height": 500
+    },
+    "image": { 
+        "src": "Images/Sun.png",
+        "name": "sun1",
+        "hOffset": 250,
+        "vOffset": 250,
+        "alignment": "center"
+    }
+  }
+}
+```
+
+There are more ways to specify the output of an API, but we are gonna use JSON as the one since is the most common in most of the RESTFul APIs.
+
+#### HTTP Response status codes
+
+Response status codes are part of the HTTP specification. There are quite a number of them to address the most common situations. In the spirit of having our RESTful services embrace the HTTP specification, our Web APIs should return relevant HTTP status codes. For example, when a resource is successfully created (e.g. from a POST request), the API should return HTTP status code 201. A list of valid [HTTP status codes](https://www.restapitutorial.com/httpstatuscodes.html) is available [here](https://www.restapitutorial.com/httpstatuscodes.html) which lists detailed descriptions of each.
+
+Suggested usages for the **Top 10 HTTP Response Status Codes** are as follows:
+
+- **200 OK**
+
+  General success status code. This is the most common code. Used to indicate success.
+
+- **201 CREATED**
+
+  Successful creation occurred (via either POST or PUT). Set the Location header to contain a link to the newly-created resource (on POST). Response body content may or may not be present.
+
+- **204 NO CONTENT**
+
+  Indicates success but nothing is in the response body, often used for DELETE and PUT operations.
+
+- **400 BAD REQUEST**
+
+  General error for when fulfilling the request would cause an invalid state. Domain validation errors, missing data, etc. are some examples.
+
+- **401 UNAUTHORIZED**
+
+  Error code response for missing or invalid authentication token.
+
+- **403 FORBIDDEN**
+
+  Error code for when the user is not authorized to perform the operation or the resource is unavailable for some reason (e.g. time constraints, etc.).
+
+- **404 NOT FOUND**
+
+  Used when the requested resource is not found, whether it doesn't exist or if there was a 401 or 403 that, for security reasons, the service wants to mask.
+
+- **405 METHOD NOT ALLOWED**
+
+  Used to indicate that the requested URL exists, but the requested HTTP method is not applicable. For example, POST */users/12345* where the API doesn't support creation of resources this way (with a provided ID). The Allow HTTP header must be set when returning a 405 to indicate the HTTP methods that are supported. In the previous case, the header would look like "Allow: GET, PUT, DELETE"
+
+- **409 CONFLICT**
+
+  Whenever a resource conflict would be caused by fulfilling the request. Duplicate entries, such as trying to create two customers with the same information, and deleting root objects when cascade-delete is not supported are a couple of examples.
+
+- **500 INTERNAL SERVER ERROR**
+
+  Never return this intentionally. The general catch-all error when the server-side throws an exception. Use this only for errors that the consumer cannot address from their end.
+
+> **TIP**: For knowing all the HTTP codes without dying, it's cool to checkout this [website](https://http.cat/) called HTTP.cat. Just check it.

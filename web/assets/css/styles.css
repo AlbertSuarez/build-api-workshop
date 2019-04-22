@@ -36,6 +36,15 @@ html, body {
     background-color: #ccc;
 }
 
-#apiForm .auto-center {
+/* JSON viewer */
+
+#json-renderer {
+    border: 1px solid #ccc;
+    border-radius: 0.5em;
+}
+
+/* Utils */
+
+.auto-center {
     margin: 0 auto !important;
 }

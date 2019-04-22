@@ -23,6 +23,7 @@
         <meta property="og:url" content="https://asuarez.dev/build-api-workshop">
 
         <link rel="stylesheet" type="text/css" href="web/assets/css/styles.css">
+        <link rel="stylesheet" type="text/css" href="web/assets/css/jquery.json-viewer.css">
 
         <!--Fonts-->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
@@ -35,7 +36,7 @@
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
             crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
+        <script src="web/assets/js/jquery.json-viewer.js"></script>
     </head>
 
     <body>
@@ -82,6 +83,11 @@
                         <button type="submit" class="btn form-control">Submit</button>
                     </div>
                 </form>
+                <div class="row">
+                    <div class="col-lg-7 col-md-9 col-sm-12 auto-center">
+                        <pre id="json-renderer"></pre>
+                    </div>
+                </div>
             </div>
         </div>
 

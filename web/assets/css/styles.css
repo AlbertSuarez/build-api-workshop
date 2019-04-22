@@ -31,9 +31,14 @@ html, body {
     padding-bottom: 0.5em;
 }
 
-#apiForm button {
+#apiForm a {
     color: #000;
     background-color: #ccc;
+}
+
+#apiForm a:hover {
+    color: #000;
+    background-color: #bbb;
 }
 
 /* JSON viewer */

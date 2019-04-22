@@ -1,0 +1,9 @@
+Flask==1.0.2
+Flask-Cors==3.0.7
+## The following requirements were added by pip freeze:
+Click==7.0
+itsdangerous==1.1.0
+Jinja2==2.10.1
+MarkupSafe==1.1.1
+six==1.12.0
+Werkzeug==0.15.2

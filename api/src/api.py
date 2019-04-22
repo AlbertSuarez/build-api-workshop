@@ -12,7 +12,7 @@ flask_app.config['JSON_AS_ASCII'] = False  # Needed for proper UTF-8 support.
 CORS(flask_app)
 
 
-@flask_app.route('/test')
+@flask_app.route('/test', methods=['GET'])
 def test():
     """
     This endpoint returns the current server time and a static text.

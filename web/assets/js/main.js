@@ -16,8 +16,6 @@ function renderJson(jsonString) {
 }
 renderJson('{"message": "Waiting for your request."}');
 
-
-
 /* Form stuff */
 
 // Set up our HTTP request
@@ -45,7 +43,7 @@ $('#apiForm a').on('click', function() {
     xhr.onload = function () {
         // Process our return data
         if (xhr.status >= 200 && xhr.status < 300) {
-            var jsonResponse = JSON.parse(xhr.responseText)
+            var jsonResponse = xhr.responseText;
             renderJson(jsonResponse);
         } else {
             // What do when the request fails

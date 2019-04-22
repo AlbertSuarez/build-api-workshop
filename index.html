@@ -63,6 +63,25 @@
                         </a>
                     </div>
                 </div>
+                <form id="apiForm">
+                    <div class="form-group row col-lg-5 col-md-7 col-sm-9 auto-center">
+                        <input type="number" class="form-control" id="portInput" placeholder="Port (i.e. 8080)">
+                    </div>
+                    <div class="form-group row col-lg-5 col-md-7 col-sm-9 auto-center">
+                        <input class="form-control" id="endpointInput" placeholder="Endpoint (i.e. /companies)">
+                    </div>
+                    <div class="form-group row col-lg-5 col-md-7 col-sm-9 auto-center">
+                        <select class="form-control" id="methodInput" placeholder="Method">
+                            <option>GET</option>
+                            <option>PUT</option>
+                            <option>POST</option>
+                            <option>DELETE</option>
+                        </select>
+                    </div>
+                    <div class="form-group row col-lg-5 col-md-7 col-sm-9 auto-center">
+                        <button type="submit" class="btn form-control">Submit</button>
+                    </div>
+                </form>
             </div>
         </div>
 

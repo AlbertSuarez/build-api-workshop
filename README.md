@@ -25,6 +25,7 @@
 3. [Practice](#practice)
    1. [Set up](#set-up)
    2. [Python](#python)
+   3. [Exercises](#exercises)
 4. [Tools](#tools)
 
 ## Introduction
@@ -252,6 +253,22 @@ For all the people that's not familiar with Python, the first lines are the ones
 After that, we create and configure a Flask application. The `CORS(flask_app)` command is needed for a correct communication between the frontend and the backend (or API).
 
 And then, we can see how can we create an endpoint just setting the `path` where the endpoint is located and allowed methods for that operation. The showed example is a simple endpoint without parameters that just return, in a proper JSON format, the current server time and a static text.
+
+### Exercises
+
+Now it's **your** turn. [Fork](https://github.com/AlbertSuarez/build-api-workshop/fork) this repository and try to implement the following endpoints making your API more complete and beautiful. For testing the result, you can use this [frontend](https://asuarez.dev/build-api-workshop) I've been preparing (completly isolated from your API) where given a **port** (which is `8080` by default), an **endpoint**, a **HTTP method** and optionally an `application/json` **request body**, you could see how a frontend is interpreting your local API as a *black box*.
+
+#### Exercise 1: Your name
+
+Create an endpoint that returns your first and last name in different variables.
+
+#### Exercise 2: Calculator
+
+Create an endpoint that given two numbers and an operator (which could be `+`, `-` and `*`) computes the operation.
+
+#### Exercise 3: Downloader
+
+Create an endpoint that downloads an image in the local machine given an URL. This endpoins must return if the request was successful or not.
 
 ## Tools
 

@@ -26,6 +26,9 @@
    1. [Set up](#set-up)
    2. [Python](#python)
    3. [Exercises](#exercises)
+      1. [Exercise 1: Your name](#exercise-1-your-name)
+      2. [Exercise 2: Calculator](#exercise-2-calculator)
+      3. [Exercise 3: Downloader](#exercise-3-downloader)
 4. [Tools](#tools)
 
 ## Introduction

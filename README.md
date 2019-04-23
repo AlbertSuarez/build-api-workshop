@@ -185,7 +185,28 @@ Suggested usages for the **Top 10 HTTP Response Status Codes** are as follows:
 
 ## Practice
 
-`# TODO`
+Now that we already understood (I hope) all the concepts related to create an API, let's make it real.
+
+The idea of this section is to create some endpoints of an API using [Python](https://www.python.org/) and the [Flask](http://flask.pocoo.org/) library. Flask is a simple, yet very powerful Python web framework, specially very useful for a hackathon environment.
+
+All the code related to this section is under the `api` path. For installing all the dependencies, take a look at the [README](api/README.md) where is well detailed. The folder structure is the following.
+
+```
+.
+├── requirements.lock
+├── requirements.txt
+└── src
+    ├── __init__.py
+    ├── __main__.py
+    └── api.py
+```
+
+- **requirements.txt**: contains a list of the Python libraries needed for building a Flask API.
+- **requirements.lock**: contains the same list as before but with the versions and other needed libraries specified.
+- **src**: folder containg all the code related to the API.
+- **__init__.py**: file needed in Python for specifying that the current directory is a Python module.
+- **__main__.py**: file needed in Python for specifying the main function for this Python module.
+- **api.py**: file where the Flask application is created (and where we are gonna implement the endpoints).
 
 ## Tools
 

@@ -23,6 +23,8 @@
       1. [JSON](#json)
       2. [HTTP Response status codes](#http-response-status-codes)
 3. [Practice](#practice)
+   1. [Set up](#set-up)
+   2. [Python](#python)
 4. [Tools](#tools)
 
 ## Introduction
@@ -185,11 +187,17 @@ Suggested usages for the **Top 10 HTTP Response Status Codes** are as follows:
 
 ## Practice
 
+### Set up
+
 Now that we already understood (I hope) all the concepts related to create an API, let's make it real.
 
 The idea of this section is to create some endpoints of an API using [Python](https://www.python.org/) and the [Flask](http://flask.pocoo.org/) library. Flask is a simple, yet very powerful Python web framework, specially very useful for a hackathon environment.
 
-All the code related to this section is under the `api` path. For installing all the dependencies, take a look at the [README](api/README.md) where is well detailed. The folder structure is the following.
+All the code related to this section is under the `api` path. For installing all the dependencies, take a look at the [README](api/README.md) where is well detailed.
+
+### Python
+
+The folder structure is the following.
 
 ```
 .
@@ -207,6 +215,43 @@ All the code related to this section is under the `api` path. For installing all
 - **__init__.py**: file needed in Python for specifying that the current directory is a Python module.
 - **__main__.py**: file needed in Python for specifying the main function for this Python module.
 - **api.py**: file where the Flask application is created (and where we are gonna implement the endpoints).
+
+Taking a look to the `api.py` file, we can see this:
+
+```python
+import datetime
+
+from flask import Flask, jsonify
+from flask_cors import CORS
+
+
+# Setup Flask app.
+flask_app = Flask(__name__)
+flask_app.config['JSON_AS_ASCII'] = False  # Needed for proper UTF-8 support.
+
+# Setup CORS - this is needed for a proper communication with the frontend.
+CORS(flask_app)
+
+
+@flask_app.route('/test', methods=['GET'])
+def test():
+    """
+    This endpoint returns the current server time and a static text.
+    :return: Current server time and text JSON formatted.
+    """
+    response = {
+        'time': datetime.datetime.now().strftime('%m/%d/%Y - %H:%M:%S'),
+        'text': 'This is a test.'
+    }
+    return jsonify(response), 200
+
+```
+
+For all the people that's not familiar with Python, the first lines are the ones that import all the needed libraries (from Python or from third parties) for making the code work.
+
+After that, we create and configure a Flask application. The `CORS(flask_app)` command is needed for a correct communication between the frontend and the backend (or API).
+
+And then, we can see how can we create an endpoint just setting the `path` where the endpoint is located and allowed methods for that operation. The showed example is a simple endpoint without parameters that just return, in a proper JSON format, the current server time and a static text.
 
 ## Tools
 

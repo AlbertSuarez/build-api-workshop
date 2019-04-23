@@ -29,6 +29,8 @@
       1. [Exercise 1: Your name](#exercise-1-your-name)
       2. [Exercise 2: Calculator](#exercise-2-calculator)
       3. [Exercise 3: Downloader](#exercise-3-downloader)
+      4. [Exercise 4: File Manager](#exercise-4-file-manager)
+      5. [Exercise 5: Disk space](#exercise-5-disk-space)
 4. [Tools](#tools)
 
 ## Introduction
@@ -272,6 +274,14 @@ Create an endpoint that given two numbers and an operator (which could be `+`, `
 #### Exercise 3: Downloader
 
 Create an endpoint that downloads an image in the local machine given an URL. This endpoins must return if the request was successful or not.
+
+#### Exercise 4: File manager
+
+Create a bunch of endpoints that allows to create, retrieve, update and modify the content of a file given its name.
+
+#### Exercise 5: Disk space
+
+Create an endpoint that retrieves the following information of the filesystem `/` (root) of the local machine: `Total size`, `used size`, `available size` and `percentage of capacity`.
 
 ## Tools
 
